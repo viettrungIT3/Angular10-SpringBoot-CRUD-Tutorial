@@ -3,8 +3,6 @@ package com.example.springboot.controller;
 import com.example.springboot.model.Employee;
 import com.example.springboot.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,4 +26,11 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return repository.save(employee);
     }
+
+    // create new list employee
+    @PostMapping("/all")
+    public List<Employee> createEmployees(@RequestBody List<Employee> employee) {
+        return repository.saveAll(employee);
+    }
+
 }
